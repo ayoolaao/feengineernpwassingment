@@ -19,6 +19,9 @@ $desktop-width: 1024px;
   &__items {
     margin: 8px 0;
   };
+  &__progress-bar {
+    max-width: 300px;
+  }
   &__carrier {
     margin: 0 !important;
   };
