@@ -1,0 +1,56 @@
+$mobile-width: 400px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (min-width: $tablet-width) and (max-width: $desktop-width - 1px) {
+    @content
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content
+  }
+}
+
+.order-details {
+  padding: 32px;
+  &__items {
+    margin: 8px 0;
+  };
+  &__progress-bar {
+    max-width: 300px;
+  }
+  &__carrier {
+    margin: 0 !important;
+  };
+  &__tracking-number {
+    margin: 0 !important;
+    color: #0057b8;
+  };
+  &__estimated-delivery {
+    margin: 12px 0 4px 0 !important;
+    color: grey;
+    span {
+      font-weight: 500;
+      color: black;
+    }
+  };
+  &__address {
+    display: grid;
+    grid-template-columns: auto 2fr;
+    align-items: baseline;
+    div {
+      margin-left: 8px;
+    }
+  }
+
+  @include tablet {
+
+  }
+
+  @include desktop {
+
+  }
+}

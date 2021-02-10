@@ -1,13 +1,14 @@
 .not-found {
   display: flex;
+  margin-top: 38px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   &__title {
-    font-size: 84px;
+    font-size: 64px !important;
    };
   &__message {
-    font-size: 48px;
+    font-size: 32px !important;
   };
   &__artwork {
     font-size: 150px;

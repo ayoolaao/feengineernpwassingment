@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import './App.css';
+import './app.scss';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchOrders } from './redux/ordersSlice';
+import { ordersSelector } from './redux/ordersSlice';
 import { selectPanelIsActive, selectPanelIsVisible, selectXyLocation } from './redux/summaryPanelSlice';
 import Home from './screens/home/Home';
 import NotFound from './screens/notFound/NotFound';
@@ -12,7 +13,7 @@ import SummaryPanel from './components/summarypanel/SummaryPanel';
 
 function App() {
   const dispatch = useDispatch();
-  const orders = useSelector(({ ordersStore }) => ordersStore.orders)
+  const orders = useSelector(ordersSelector)
   const panelIsActive = useSelector(selectPanelIsActive);
   const panelIsVisible = useSelector(selectPanelIsVisible);
   const xyLocation = useSelector(selectXyLocation);
