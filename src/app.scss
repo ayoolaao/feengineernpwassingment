@@ -1,0 +1,41 @@
+$mobile-width: 400px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin tablet {
+  @media (min-width: $tablet-width) and (max-width: $desktop-width - 1px) {
+    @content
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-width) {
+    @content
+  }
+}
+
+
+.app {
+  font-size: 8px;
+  h1{
+    margin: 6px 0;
+    font-size: 12px;
+    font-weight: 500;
+  };
+  p {
+    margin: 2px 0;
+    color: grey;
+  };
+
+  @include tablet {
+
+  }
+
+  @include desktop {
+
+  }
+}
+
+.app-header {
+  position: relative;
+}

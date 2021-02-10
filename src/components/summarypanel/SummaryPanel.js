@@ -3,16 +3,17 @@ import './summaryPanel.scss';
 import { setPanelIsActive } from '../../redux/summaryPanelSlice';
 import {useDispatch} from 'react-redux';
 import SummaryCard from '../summaryCard/SummaryCard';
+import ProgressBar from '../progressBar/ProgressBar';
 
 const SummaryPanel = ({ order, coordinates }) => {
-  const { items } = order;
+  const { items, orderId, status, shipments } = order;
   const dispatch = useDispatch();
   const [style, setStyle] = useState();
 
   const generateCoordinateStyle = coordinate => {
     const {x, y} = coordinate;
     return {
-      left: x - 400 + 'px',
+      left: x - 300 + 'px',
       top: y + 'px'
     };
   }
@@ -30,7 +31,14 @@ const SummaryPanel = ({ order, coordinates }) => {
 
   return (
     <div style={style} className='summary-panel' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      {items.length && items.map(item => (<SummaryCard item={item} key={item.id} />))}
+      {items.length && items.map(item => (<SummaryCard item={item} key={item.id} orderId={orderId} />))}
+      <div className='summary-panel__progressbar-container'>
+        <ProgressBar
+          status={status}
+          shipDate={shipments[0].shipDate}
+          estimatedDeliveryDate={shipments[0].estimatedDeliveryDate}
+        />
+      </div>
     </div>
   );
 };

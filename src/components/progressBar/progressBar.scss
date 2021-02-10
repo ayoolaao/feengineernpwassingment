@@ -1,0 +1,14 @@
+.progress-bar {
+  //height: 100px;
+  max-width: 300px;
+  //border: 1px solid #0057b8;
+  &__icons {
+    display: flex;
+    justify-content: space-around;
+    margin: 8px 0;
+    h1 {
+      margin: 0 16px;
+      font-size: 36px;
+    }
+  }
+}

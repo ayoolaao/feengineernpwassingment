@@ -1,14 +1,12 @@
 .summary-card {
   display: grid;
-  grid-template-columns: 1fr 2fr ;
+  align-items: center;
+  grid-template-columns: auto 2fr ;
   background: #ffffff;
-  width: 400px;
-  padding: 10px;
-  margin: 8px;
+  width: 300px;
   cursor: pointer;
   &__item-image {
     pointer-events: none;
-    background: #0057b8;
   };
   &__item-details{
     pointer-events: none;
@@ -22,12 +20,6 @@
   };
   &__item-attributes {
     pointer-events: none;
-    h1{
-      margin: 6px 0 !important;
-    };
-    p {
-      margin: 2px 0 !important;
-    };
   }
 }
 
