@@ -27,6 +27,31 @@
           "toDate": "2020-10-02T13:39:52.774-05:00"
         },
         "userAcceptedDelay": true
+      },
+      {
+        "id": 100001,
+        "name": "Apple Iphone XR",
+        "plan": "AT&T Unlimited Extra",
+        "skuId": "sku1234",
+        "skuAttributes": {
+          "model": "Iphone XR",
+          "manufacturer": "Apple",
+          "color": "Yellow",
+          "size": "64 GB"
+        },
+        "quantity": 1,
+        "telephoneNumber": "409.406.3322",
+        "status": "ordered",
+        "complete": true,
+        "estimatedShipDateRange": {
+          "fromDate": "2020-09-06T13:39:52.774-05:00",
+          "toDate": "2020-09-06T13:39:52.774-05:00"
+        },
+        "newEstimatedShipDateRange": {
+          "fromDate": "2020-10-02T13:39:52.774-05:00",
+          "toDate": "2020-10-02T13:39:52.774-05:00"
+        },
+        "userAcceptedDelay": true
       }
     ],
     "status": "ordered",
