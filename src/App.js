@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { fetchOrders } from './redux/ordersSlice';
 import { selectPanelIsActive, selectPanelIsVisible, selectXyLocation } from './redux/summaryPanelSlice';
 import Home from './screens/home/Home';
+import NotFound from './screens/notFound/NotFound';
 import OrderDetails from './screens/orderDetails/OrderDetails';
 import GlobalNav from './components/globalNav/GlobalNav';
 import SummaryPanel from './components/summarypanel/SummaryPanel';
@@ -28,14 +29,13 @@ function App() {
         {(panelIsVisible || panelIsActive) && orders && <SummaryPanel order={orders[0]} coordinates={xyLocation} />}
       </header>
 
-      <Router>
-        <Switch>
-          <Route exact path='/order' render={props => <OrderDetails {...props}/>} />
-          <Route exact path='/' render={props => <Home {...props}/>} />
-        </Switch>
-      </Router>
+      <Switch>
+        <Route path='/order/:orderId' render={props => <OrderDetails {...props}/>} />
+        <Route exact path='/' render={props => <Home {...props}/>} />
+        <Route path='*' render={() => <NotFound />} />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);

@@ -7,17 +7,21 @@
   margin: 8px;
   cursor: pointer;
   &__item-image {
+    pointer-events: none;
     background: #0057b8;
   };
   &__item-details{
+    pointer-events: none;
     font-size: 8px;
     text-align: left;
     margin-left: 24px;
   };
   &__shipping-info{
+    pointer-events: none;
     margin-top: 14px;
   };
   &__item-attributes {
+    pointer-events: none;
     h1{
       margin: 6px 0 !important;
     };

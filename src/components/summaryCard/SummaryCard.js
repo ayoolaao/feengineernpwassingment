@@ -1,8 +1,21 @@
 import React from 'react';
 import './summaryCard.scss';
+import { useHistory } from 'react-router-dom';
 
 const SummaryCard = ({ item }) => {
-const { estimatedShipDateRange, name, newEstimatedShipDateRange, plan, skuAttributes, status, quantity, telephoneNumber } = item;
+  const history = useHistory();
+  const {
+    id,
+    estimatedShipDateRange,
+    name,
+    newEstimatedShipDateRange,
+    plan,
+    skuAttributes,
+    status,
+    quantity,
+    telephoneNumber
+  } = item;
+
   const generateDate = (expDateRanges, newDateRanges, status) => {
     switch (status) {
       case 'ordered':
@@ -16,8 +29,10 @@ const { estimatedShipDateRange, name, newEstimatedShipDateRange, plan, skuAttrib
     }
   }
 
+  const handleClick = () => history.push(`/order/${id}`)
+
   return (
-    <div className='summary-card'>
+    <div id={id} className='summary-card' onClick={handleClick}>
       <div className='summary-card__item-image'>.</div>
       <div className='summary-card__item-details'>
         <div>Progress Bars Here</div>

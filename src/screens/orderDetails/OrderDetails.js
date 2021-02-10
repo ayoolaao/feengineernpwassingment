@@ -1,9 +1,12 @@
 import React from 'react';
 
-const OrderDetails = () => {
+const OrderDetails = ({ match }) => {
+  console.log(match)
+  const { params: { orderId } } = match;
+
   return (
     <div>
-      OrderDetails
+      OrderDetails for {orderId}
     </div>
   );
 };
