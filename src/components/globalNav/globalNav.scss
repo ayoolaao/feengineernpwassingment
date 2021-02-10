@@ -1,0 +1,22 @@
+.global-nav {
+  display: flex;
+  align-items: center;
+  background: #0057b8;
+  color: #fff;
+  margin: auto;
+  min-height: 52px;
+  max-width: 1920px;
+  font-weight: 500;
+  cursor: pointer;
+  &__right {
+    margin-left: auto;
+    font-size: 12px;
+  };
+  &__item {
+    margin: 0 16px;
+    padding-bottom: 6px;
+    &:hover {
+      border-bottom: 2px solid #ffffff;
+    }
+  }
+}

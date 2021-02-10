@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import { fetchOrders } from './redux/ordersSlice';
+import { selectPanelIsActive, selectPanelIsVisible, selectXyLocation } from './redux/summaryPanelSlice';
+import Home from './screens/home/Home';
+import NotFound from './screens/notFound/NotFound';
+import OrderDetails from './screens/orderDetails/OrderDetails';
+import GlobalNav from './components/globalNav/GlobalNav';
+import SummaryPanel from './components/summarypanel/SummaryPanel';
 
 function App() {
+  const dispatch = useDispatch();
+  const orders = useSelector(({ ordersStore }) => ordersStore.orders)
+  const panelIsActive = useSelector(selectPanelIsActive);
+  const panelIsVisible = useSelector(selectPanelIsVisible);
+  const xyLocation = useSelector(selectXyLocation);
+
+  useEffect(() => {
+    dispatch(fetchOrders());
+  }, []); // eslint-disable-line
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header className="app-header">
+        <GlobalNav />
+        {(panelIsVisible || panelIsActive) && orders && <SummaryPanel order={orders[0]} coordinates={xyLocation} />}
       </header>
+
+      <Switch>
+        <Route path='/order/:orderId' render={props => <OrderDetails {...props}/>} />
+        <Route exact path='/' render={props => <Home {...props}/>} />
+        <Route path='*' render={() => <NotFound />} />
+      </Switch>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
