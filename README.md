@@ -2,6 +2,7 @@ Ayoola's Assignment
 GitHub: https://github.com/ayoolaao
 GitLab: https://gitlab.com/ayoolaao
 LinkedIn: https://www.linkedin.com/in/abimbolaao/
+email: ao.abimbola@gmail.com
 
 node version: v14.15.1
 
